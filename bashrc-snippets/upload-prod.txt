@@ -1,0 +1,4 @@
+# app server shortcuts
+for cmd in start kill restart; do
+  alias $cmd\_uploader=". ~/bash_scripts/$cmd\_uploader"
+done

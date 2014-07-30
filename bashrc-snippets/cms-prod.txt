@@ -1,0 +1,6 @@
+# app server shortcuts
+for cmd in start kill restart; do
+  for app in all cms cms_api storage; do
+    alias $cmd\_$app=". ~/bash_scripts/$cmd\_$app"
+  done
+done
