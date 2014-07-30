@@ -1,0 +1,1 @@
+kill_cms_api && start_cms_api
