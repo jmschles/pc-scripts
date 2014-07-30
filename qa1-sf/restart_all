@@ -1,6 +1,0 @@
-restart_cms
-restart_cms_api
-restart_jobs
-restart_storage
-restart_uploader
-# restart_utility

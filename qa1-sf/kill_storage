@@ -1,7 +1,0 @@
-storage_pid=`screen -ls | grep storage | awk -F '.' '{print $1}'`
-if [ -z "$storage_pid" ]
-then
-  echo "Could not kill storage: process not found"
-else
-  kill $storage_pid
-fi
