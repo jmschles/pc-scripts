@@ -1,0 +1,7 @@
+jobs_pid=`screen -ls | grep jobs | awk -F '.' '{print $1}'`
+if [ -z "$jobs_pid" ]
+then
+  echo "Could not kill jobs: process not found"
+else
+  kill $jobs_pid
+fi

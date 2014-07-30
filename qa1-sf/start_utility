@@ -1,0 +1,11 @@
+utility_pid=`screen -ls | grep utility | awk -F '.' '{print $1}'`
+if [ -z "$utility_pid" ]
+then
+  current_dir=`pwd`
+  cd ~/utility/current
+  screen -S utility -d -m bundle exec unicorn -p 3000
+  cd $current_dir
+  echo "utility started"
+else
+  echo "could not start utility: app is already running"
+fi

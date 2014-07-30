@@ -1,0 +1,11 @@
+uploader_pid=`screen -ls | grep uploader | awk -F '.' '{print $1}'`
+if [ -z "$uploader_pid" ]
+then
+  current_dir=`pwd`
+  cd ~/uploader/current
+  screen -S uploader -d -m bundle exec unicorn -p 3004 -c config/unicorn.rb
+  cd $current_dir
+  echo "uploader started"
+else
+  echo "could not start uploader: app is already running"
+fi
