@@ -13,3 +13,7 @@ Scripts are organized by machine, since they vary depending on the needs of the 
 ### The .bashrc Snippets
 
 The .txt files in this folder correspond to servers, and contain the snippets in twist-dev's .bashrc file that create aliases for the scripts above.  When included, they allow you to run, for example, `start_cms` from anywhere on the dev-sf machine.  **These snippets assume that your scripts live in `/home/twist-dev/bash_scripts` and will not work otherwise.**
+
+### Shared config files
+
+These live in `{app_name}/shared/config/` on each server and do not change from deploy to deploy.  They specify the Runr and Mongoid configurations for each application running on the server, and vary depending on the environment.
