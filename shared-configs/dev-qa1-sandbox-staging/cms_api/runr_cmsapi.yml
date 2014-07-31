@@ -1,0 +1,29 @@
+localhost_config: &localhost_config
+  :host: 127.0.0.1
+  :port: 6379
+
+:development:
+  :verbosity: 3
+  :admin:
+    <<: *localhost_config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *localhost_config
+
+:test:
+  :admin:
+    <<: *localhost_config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *localhost_config
+
+:dev-sf:
+  :admin:
+    <<: *localhost_config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *localhost_config
+

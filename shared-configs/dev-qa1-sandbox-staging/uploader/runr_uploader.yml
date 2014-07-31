@@ -1,0 +1,21 @@
+:development:
+  :admin:
+    :host: 127.0.0.1
+    :port: 6379
+  :session:
+    :host: 127.0.0.1
+    :port: 6379
+  :message:
+    :host: 127.0.0.1
+    :port: 6379
+
+:test:
+  :admin:
+    :host: 127.0.0.1
+    :port: 6379
+  :session:
+    :host: 127.0.0.1
+    :port: 6379
+  :message:
+    :host: 127.0.0.1
+    :port: 6379

@@ -1,0 +1,31 @@
+localhost_config: &localhost_config
+  :host: 127.0.0.1
+  :port: 6379
+
+dev-sf-config: &dev-sf-config
+  :host: dev-sf-psft.co
+  :port: 6379
+
+:development:
+  :admin:
+    <<: *localhost_config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *localhost_config
+
+:test:
+  :admin:
+    <<: *localhost_config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *localhost_config
+
+:dev-sf:
+  :admin:
+    <<: *dev-sf-config
+  :session:
+    <<: *localhost_config
+  :message:
+    <<: *dev-sf-config
