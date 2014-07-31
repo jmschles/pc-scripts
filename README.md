@@ -1,6 +1,6 @@
 ### Overview
 
-This repository contains snapshots of the convenience scripts we use to start, stop, and restart app servers.  I will try to keep it up to date as the servers evolve.
+This repository contains snapshots of a) the convenience scripts we use to start, stop, and restart app servers, b) .bashrc code for aliasing those scripts, and c) Mongoid and Runr configuration files that are shared between deploys.  I will try to keep it up to date as the servers evolve.
 
 ### The Scripts
 
