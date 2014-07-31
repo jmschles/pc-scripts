@@ -4,7 +4,7 @@ then
   current_dir=`pwd`
   cd ~/uploader/current
   export SECRET_KEY_BASE=`bundle exec rake secret`
-  screen -S uploader -d -m bundle exec unicorn -p 3004 -E production
+  screen -S uploader -d -m bundle exec unicorn -p 3004 -E production -c config/unicorn.rb
   cd $current_dir
   echo "uploader started"
 else
