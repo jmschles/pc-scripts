@@ -8,6 +8,7 @@ Scripts are organized by machine, since they vary depending on the needs of the 
 * dev-sf, qa1-sf, staging-sf, and sandbox-sf currently have identical setups and therefore share a folder.  The scripts start/stop all apps (cms_api, cms, storage, uploader, and jobs) in development mode.
 * cms-prod scripts start/stop cms_api, cms, and storage in production mode.
 * upload-prod scripts start/stop the uploader in production mode only.
+* unused scripts on each server are in the `unused/` folder.  Maybe they'll be useful later!
 
 ### The .bashrc Snippets
 
