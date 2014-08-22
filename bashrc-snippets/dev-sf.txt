@@ -1,6 +1,6 @@
 # app server shortcuts
 for cmd in start kill restart; do
-  for app in all cms cms_api jobs storage uploader runr_utility; do
+  for app in all cms webr jobs storage uploader runr_utility; do
     alias $cmd\_$app=". ~/bash_scripts/$cmd\_$app"
   done
 done
