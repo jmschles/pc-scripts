@@ -1,0 +1,11 @@
+utility_pid=`screen -ls | grep runr_utility | awk -F '.' '{print $1}'`
+if [ -z "$runr_utility_pid" ]
+then
+  current_dir=`pwd`
+  cd ~/runr_utility/current
+  screen -S runr_utility -d -m bundle exec unicorn -p 3000
+  cd $current_dir
+  echo "runr_utility started"
+else
+  echo "could not start runr_utility: app is already running"
+fi

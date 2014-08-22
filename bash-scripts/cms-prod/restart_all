@@ -1,5 +1,5 @@
 restart_cms
-restart_cms_api
-# restart_jobs
+restart_webr
+restart_jobs
 restart_storage
-# restart_uploader
+restart_uploader

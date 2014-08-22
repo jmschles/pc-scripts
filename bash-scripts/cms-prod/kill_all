@@ -1,35 +1,10 @@
-cms_pid=`screen -ls | grep cms_main | awk -F '.' '{print $1}'`
-if [ -z "$cms_pid" ]
-then
-  echo "Could not kill cms: process not found"
-else
-  kill $cms_pid
-fi
-cms_api_pid=`screen -ls | grep cms_api | awk -F '.' '{print $1}'`
-if [ -z "$cms_api_pid" ]
-then
-  echo "Could not kill cms_api: process not found"
-else
-  kill $cms_api_pid
-fi
-# jobs_pid=`screen -ls | grep jobs | awk -F '.' '{print $1}'`
-# if [ -z "$jobs_pid" ]
-# then
-#   echo "Could not kill jobs: process not found"
-# else
-#   kill $jobs_pid
-# fi
-storage_pid=`screen -ls | grep storage | awk -F '.' '{print $1}'`
-if [ -z "$storage_pid" ]
-then
-  echo "Could not kill storage: process not found"
-else
-  kill $storage_pid
-fi
-# uploader_pid=`screen -ls | grep uploader | awk -F '.' '{print $1}'`
-# if [ -z "$uploader_pid" ]
-# then
-#   echo "Could not kill uploader: process not found"
-# else
-#   kill $uploader_pid
-# fi
+for app in cms webr storage; do
+  pid=`screen -ls | grep $app | awk -F '.' '{print $1}'`
+  if [ -z "$pid" ]
+  then
+    echo "could not kill cms: process not found"
+  else
+    echo "killing $app..."
+    kill $pid
+  fi
+done

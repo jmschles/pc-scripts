@@ -1,0 +1,8 @@
+webr_pid=`screen -ls | grep webr | awk -F '.' '{print $1}'`
+if [ -z "$webr_pid" ]
+then
+  echo "could not kill webr: process not found"
+else
+  echo "killing webr..."
+  kill $webr_pid
+fi

@@ -1,47 +1,20 @@
 current_dir=`pwd`
-cms_pid=`screen -ls | grep cms_main | awk -F '.' '{print $1}'`
-if [ -z "$cms_pid" ]
-then
-  cd ~/cms/current
-  screen -S cms_main -d -m bundle exec unicorn -p 3002 -E production
-  echo "cms started"
-else
-  echo "could not start cms: app is already running"
-fi
-cms_api_pid=`screen -ls | grep cms_api | awk -F '.' '{print $1}'`
-if [ -z "$cms_api_pid" ]
-then
-  cd ~/cms_api/current
-  screen -S cms_api -d -m bundle exec unicorn -p 3001 -E production
-  echo "cms_api started"
-else
-  echo "could not start cms_api: app is already running"
-fi
-storage_pid=`screen -ls | grep storage | awk -F '.' '{print $1}'`
-if [ -z "$storage_pid" ]
-then
-  cd ~/storage/current
-  screen -S storage -d -m bundle exec unicorn -p 3003 -E production
-  echo "storage started"
-else
-  echo "could not start storage: app is already running"
-fi
-# uploader_pid=`screen -ls | grep uploader | awk -F '.' '{print $1}'`
-# if [ -z "$uploader_pid" ]
-# then
-#   cd ~/uploader/current
-#   screen -S uploader -d -m bundle exec unicorn -p 3004
-#   echo "uploader started"
-# else
-#   echo "could not start uploader: app is already running"
-# fi
-# jobs_pid=`screen -ls | grep jobs | awk -F '.' '{print $1}'`
-# if [ -z "$jobs_pid" ]
-# then
-#   cd ~/jobs/current
-#   screen -S jobs -d -m bundle exec unicorn -p 3005
-#   echo "jobs started"
-# else
-#   echo "could not start jobs: app is already running"
-# fi
+port_no=3001
+for app in webr cms storage; do
+  pid=`screen -ls | grep $app | awk -F '.' '{print $1}'`
+  if [ -z "$pid" ]
+  then
+    cd ~/$app/current
+    if [ $app = "uploader" ]
+    then
+      screen -S $app -d -m bundle exec unicorn -p $port_no -E production -c config/unicorn.rb
+    else
+      screen -S $app -d -m bundle exec unicorn -p $port_no -E production
+    fi
+    echo "$app started"
+  else
+    echo "could not start $app: app is already running"
+  fi
+  port_no=$(($port_no+1))
+done
 cd $current_dir
