@@ -1,6 +1,5 @@
 restart_cms
-restart_cms_api
+restart_webr
 restart_jobs
 restart_storage
 restart_uploader
-# restart_runr_utility

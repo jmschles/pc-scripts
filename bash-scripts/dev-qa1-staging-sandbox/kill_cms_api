@@ -1,7 +1,0 @@
-cms_api_pid=`screen -ls | grep cms_api | awk -F '.' '{print $1}'`
-if [ -z "$cms_api_pid" ]
-then
-  echo "Could not kill cms_api: process not found"
-else
-  kill $cms_api_pid
-fi

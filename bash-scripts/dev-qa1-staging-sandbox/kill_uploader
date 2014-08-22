@@ -1,7 +1,8 @@
 uploader_pid=`screen -ls | grep uploader | awk -F '.' '{print $1}'`
 if [ -z "$uploader_pid" ]
 then
-  echo "Could not kill uploader: process not found"
+  echo "could not kill uploader: process not found"
 else
+  echo "killing uploader..."
   kill $uploader_pid
 fi
