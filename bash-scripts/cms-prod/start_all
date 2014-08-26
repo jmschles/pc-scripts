@@ -5,12 +5,7 @@ for app in webr cms storage; do
   if [ -z "$pid" ]
   then
     cd ~/$app/current
-    if [ $app = "uploader" ]
-    then
-      screen -S $app -d -m bundle exec unicorn -p $port_no -E production -c config/unicorn.rb
-    else
-      screen -S $app -d -m bundle exec unicorn -p $port_no -E production
-    fi
+    screen -S $app -d -m bundle exec unicorn -p $port_no -E production
     echo "$app started"
   else
     echo "could not start $app: app is already running"

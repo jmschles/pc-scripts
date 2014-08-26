@@ -1,0 +1,8 @@
+runr_utility_pid=`screen -ls | grep runr_utility | awk -F '.' '{print $1}'`
+if [ -z "$runr_utility_pid" ]
+then
+  echo "could not kill runr_utility: process not found"
+else
+  echo "killing runr_utility..."
+  kill $runr_utility_pid
+fi

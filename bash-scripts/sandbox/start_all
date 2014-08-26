@@ -1,0 +1,21 @@
+current_dir=`pwd`
+port_no=3001
+for app in webr cms storage uploader jobs; do
+  pid=`screen -ls | grep $app | awk -F '.' '{print $1}'`
+  if [ -z "$pid" ]
+  then
+    cd ~/$app/current
+    if [ $app = "uploader" ]
+    then
+      export SECRET_KEY_BASE=`bundle exec rake secret`
+      screen -S $app -d -m bundle exec unicorn -p $port_no -E production -c config/unicorn.rb
+    else
+      screen -S $app -d -m bundle exec unicorn -p $port_no -E production
+    fi
+    echo "$app started"
+  else
+    echo "could not start $app: app is already running"
+  fi
+  port_no=$(($port_no+1))
+done
+cd $current_dir

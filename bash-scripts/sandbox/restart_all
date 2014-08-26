@@ -1,0 +1,5 @@
+restart_cms
+restart_webr
+restart_jobs
+restart_storage
+restart_uploader

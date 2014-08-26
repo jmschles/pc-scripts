@@ -1,0 +1,10 @@
+for app in cms webr jobs storage uploader; do
+  pid=`screen -ls | grep $app | awk -F '.' '{print $1}'`
+  if [ -z "$pid" ]
+  then
+    echo "could not kill cms: process not found"
+  else
+    echo "killing $app..."
+    kill $pid
+  fi
+done
