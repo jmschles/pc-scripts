@@ -1,0 +1,41 @@
+# if working on several apps and running test at same time,
+# could be good to run 2 servers on 6380 for development & 6379 for test
+# For regular setup, message and admin both run on one server accessible by all apps
+# and session is running on a separate server accessible by a cluster of same apps running in parallel
+
+# For staging-sf adjust to your hostname
+# Duplicate this file and remove "sample_" from the name
+
+:development:
+  :verbosity: 3
+  :message:
+    :host: 127.0.0.1
+    :port: 6379
+  :admin:
+    :host: 127.0.0.1
+    :port: 6379
+  :session:
+    :host: 127.0.0.1
+    :port: 6379
+
+:test:
+  :message:
+    :host: 127.0.0.1
+    :port: 6379
+  :admin:
+    :host: 127.0.0.1
+    :port: 6379
+  :session:
+    :host: 127.0.0.1
+    :port: 6379
+
+:staging-sf:
+  :message:
+    :host: staging-sf.psft.co
+    :port: 6379
+  :admin:
+    :host: staging-sf.psft.co
+    :port: 6379
+  :session:
+    :host: 127.0.0.1
+    :port: 6379
